@@ -2,7 +2,8 @@
 
 #include "arduino-mock/EEPROM.h"
 
-static EEPROMMock* p_EEPROMMock = NULL;
+//static EEPROMMock* p_EEPROMMock = NULL;
+EEPROMMock* p_EEPROMMock = NULL;
 EEPROMMock* EEPROMMockInstance() {
   if (!p_EEPROMMock) {
     p_EEPROMMock = new EEPROMMock();

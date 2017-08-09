@@ -1,9 +1,12 @@
 #include "arduino-mock/Arduino.h"
 
-static ArduinoMock* arduinoMock = NULL;
+//static ArduinoMock* arduinoMock = NULL;
+ArduinoMock* arduinoMock = NULL;
+
 ArduinoMock* arduinoMockInstance() {
   if(!arduinoMock) {
     arduinoMock = new ArduinoMock();
+    serialMockInstance();
   }
   return arduinoMock;
 }
@@ -12,6 +15,7 @@ void releaseArduinoMock() {
   if(arduinoMock) {
     delete arduinoMock;
     arduinoMock = NULL;
+    releaseSerialMock();
   }
 }
 
